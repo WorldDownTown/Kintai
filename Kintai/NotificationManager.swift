@@ -75,13 +75,11 @@ struct NotificationManager {
         application.cancelAllLocalNotifications()
 
         let notification = UILocalNotification()
-        notification.fireDate = NSDate()
         notification.alertBody = message
-        notification.timeZone = NSTimeZone.localTimeZone()
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.alertAction = "OPEN"
         notification.category = category
-        application.scheduleLocalNotification(notification)
+        application.presentLocalNotificationNow(notification)
     }
 
     /**
