@@ -33,14 +33,14 @@ struct NotificationManager {
         let workAction = UIMutableUserNotificationAction()
         workAction.title = "出勤"
         workAction.identifier = workActionIdentifier
-        workAction.activationMode = .Foreground
+        workAction.activationMode = .Background
         workAction.destructive = false
         workAction.authenticationRequired = false
 
         let homeAction = UIMutableUserNotificationAction()
         homeAction.title = "退勤"
         homeAction.identifier = homeActionIdentifier
-        workAction.activationMode = .Foreground
+        workAction.activationMode = .Background
         homeAction.destructive = false
         homeAction.authenticationRequired = false
 

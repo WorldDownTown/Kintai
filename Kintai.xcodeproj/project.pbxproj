@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE4004161C155B0D0015B51F /* KintaiRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4004151C155B0D0015B51F /* KintaiRequestManager.swift */; };
+		CE4004181C155B3B0015B51F /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4004171C155B3B0015B51F /* Ji.framework */; };
 		CE8588211C0B33AD002ACE72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8588201C0B33AD002ACE72 /* AppDelegate.swift */; };
 		CE8588231C0B33AD002ACE72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8588221C0B33AD002ACE72 /* ViewController.swift */; };
 		CE8588261C0B33AD002ACE72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8588241C0B33AD002ACE72 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE4004151C155B0D0015B51F /* KintaiRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KintaiRequestManager.swift; sourceTree = "<group>"; };
+		CE4004171C155B3B0015B51F /* Ji.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ji.framework; path = Carthage/Build/iOS/Ji.framework; sourceTree = "<group>"; };
 		CE85881D1C0B33AD002ACE72 /* Kintai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kintai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8588201C0B33AD002ACE72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE8588221C0B33AD002ACE72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,8 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8588571C0B341A002ACE72 /* SafariServices.framework in Frameworks */,
 				CE8588551C0B3411002ACE72 /* CoreLocation.framework in Frameworks */,
+				CE4004181C155B3B0015B51F /* Ji.framework in Frameworks */,
+				CE8588571C0B341A002ACE72 /* SafariServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +115,7 @@
 			children = (
 				CE85882C1C0B33AD002ACE72 /* Info.plist */,
 				CE8588201C0B33AD002ACE72 /* AppDelegate.swift */,
+				CE4004151C155B0D0015B51F /* KintaiRequestManager.swift */,
 				CEE8DD771C0DB28C000B9EE5 /* LocationManager.swift */,
 				CE85884F1C0B3403002ACE72 /* NotificationManager.swift */,
 				CE8588221C0B33AD002ACE72 /* ViewController.swift */,
@@ -142,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8588541C0B3411002ACE72 /* CoreLocation.framework */,
+				CE4004171C155B3B0015B51F /* Ji.framework */,
 				CE8588561C0B341A002ACE72 /* SafariServices.framework */,
 			);
 			name = Frameworks;
@@ -157,6 +164,7 @@
 				CE8588191C0B33AD002ACE72 /* Sources */,
 				CE85881A1C0B33AD002ACE72 /* Frameworks */,
 				CE85881B1C0B33AD002ACE72 /* Resources */,
+				CE4004141C155A2C0015B51F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -278,6 +286,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CE4004141C155A2C0015B51F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Ji.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE8588191C0B33AD002ACE72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -285,6 +310,7 @@
 			files = (
 				CE8588231C0B33AD002ACE72 /* ViewController.swift in Sources */,
 				CE8588211C0B33AD002ACE72 /* AppDelegate.swift in Sources */,
+				CE4004161C155B0D0015B51F /* KintaiRequestManager.swift in Sources */,
 				CEE8DD781C0DB28C000B9EE5 /* LocationManager.swift in Sources */,
 				CE8588521C0B3403002ACE72 /* NotificationManager.swift in Sources */,
 			);
@@ -426,7 +452,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Kintai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shoji.Kintai;
@@ -438,7 +467,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Kintai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shoji.Kintai;

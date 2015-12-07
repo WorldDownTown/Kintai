@@ -21,4 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+
+        KintaiRequestManager.requestWithIdentifier(identifier)
+
+        completionHandler()
+    }
 }
